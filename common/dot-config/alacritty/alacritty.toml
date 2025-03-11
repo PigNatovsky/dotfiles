@@ -1,0 +1,13 @@
+[font]
+normal = { family = "Fira Code", style = "Retina" }
+size = 18.0
+
+[keyboard]
+bindings = [
+    { key = "Return", mods = "Control|Shift", action = "SpawnNewInstance" }
+]
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/gruvbox_material_medium_light.toml"
+]
