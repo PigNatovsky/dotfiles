@@ -8,11 +8,15 @@ echo "Init and update of  Alacritty themes sumbodule"
 git submodule init
 git submodule update
 
-echo "Checking stow..."
-if which stow >/dev/null 2>&1; then
-    echo "stow is already installed"
-else
-    echo "installing stow..."
-    brew install stow
-fi
+dependencies=("fzf" "go" "stow")
+for bin in "${dependencies[@]}"
+do
+  echo "Checking $bin..."
+  if which $bin >/dev/null 2>&1; then
+      echo "$bin is already installed"
+  else
+      echo "installing $bin..."
+      brew install $bin
+  fi
+done
 
