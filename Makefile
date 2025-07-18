@@ -1,4 +1,4 @@
-DIRS = common desktop laptop
+DIRS = common
 common: prepare
 	stow --verbose --dotfiles --target=$$HOME --restow common
 prepare:
@@ -14,7 +14,5 @@ delete:
 
 .PHONY : prepare
 .PHONY : common
-.PHONY : laptop
-.PHONY : desktop
 .PHONY : delete
 

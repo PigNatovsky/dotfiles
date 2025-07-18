@@ -1,46 +1,48 @@
 "Plugins
 call plug#begin()
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'ycm-core/YouCompleteMe'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Tabs settings
-set shiftwidth=4
-set tabstop=4
 set expandtab
+set shiftwidth=2
+set tabstop=2
 
 " Other
-set nocompatible
-set backspace=indent,eol,start
+filetype indent on
 filetype on
 filetype plugin on
-filetype indent on
-"" set number
-set nobackup
-set scrolloff=10
-set nowrap
-set incsearch
+set backspace=indent,eol,start
+set clipboard=unnamed
+set hlsearch
 set ignorecase
-set smartcase
+set incsearch
+set laststatus=2
+set mouse=a
+set nobackup
+set nocompatible
+set noswapfile
+set notimeout
+set nowrap
+set scrolloff=10
 set showcmd
-set showmode
 set showmatch
+set showmode
+set smartcase
 set wildmenu
 set wildmode=list:longest
-set hlsearch
-set notimeout
-set noswapfile
-syntax off
+syntax on
 
 " Theme
 " let g:gruvbox_contrast_light='medium'
-" set background=light
-"colorscheme acme
+" set background=dark
+" colorscheme papercolor
 
 " Keybindings
 let g:mapleader = " "
@@ -72,10 +74,24 @@ map <leader>wc :cope<CR>
 
 "" Other
 map <leader>tt :Colors<CR>
-map <leader>c :Commands<CR>
+map <leader>c :Commentary<CR>
 
 "" Help
 nmap <leader>d <plug>(YCMHover)
 
 " Plugins settings
 let g:ycm_auto_hover = 0
+
+" Move deleted objects to the d register instead of clipboard
+" nnoremap d "dd
+" nnoremap D "dD
+" nnoremap c "dc
+" nnoremap C "dC
+" nnoremap x "dx
+" nnoremap X "dX
+" vnoremap d "dd
+" vnoremap D "dD
+" vnoremap c "dc
+" vnoremap C "dC
+" vnoremap x "dx
+" vnoremap X "dX
