@@ -1,3 +1,3 @@
 [submodule "alacritty-themes"]
-	path = common/dot-config/alacritty/themes
+	path = alacritty/themes
 	url = https://github.com/alacritty/alacritty-theme
