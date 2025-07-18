@@ -74,7 +74,7 @@ map <leader>wc :cope<CR>
 
 "" Other
 map <leader>tt :Colors<CR>
-map <leader>c :Commands<CR>
+map <leader>c :Commentary<CR>
 
 "" Help
 nmap <leader>d <plug>(YCMHover)
