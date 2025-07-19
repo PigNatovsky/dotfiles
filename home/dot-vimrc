@@ -46,6 +46,7 @@ syntax on
 " colorscheme papercolor
 
 " Keybindings
+"" Set leader
 let g:mapleader = " "
 
 "" Files
@@ -75,6 +76,7 @@ map <leader>wl :Windows<CR>
 
 "" Other
 map <leader>c :Commentary<CR>
+map <leader>t :TagbarToggle<CR>
 map <leader>tt :Colors<CR>
 
 "" Help
