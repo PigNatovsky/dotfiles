@@ -1,17 +1,17 @@
 #!/bin/bash
 
+echo "Creating .config..."
+mkdir -p $HOME/.config
 echo "Downloading Plug for vim..."
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-echo "Installing plugins..."
-vim +PlugInstall +qa
 
 echo "Init and update of  Alacritty themes sumbodule"
 git submodule init
 git submodule update
 
-dependencies=("fzf" "go" "stow")
+# BSD ctags will not work with tagbar plugin
+dependencies=(ctags fzf go python-setuptools stow)
 for bin in "${dependencies[@]}"
 do
   echo "Checking $bin..."

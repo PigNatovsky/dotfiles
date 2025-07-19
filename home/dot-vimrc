@@ -3,6 +3,7 @@ call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/tagbar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -48,15 +49,15 @@ syntax on
 let g:mapleader = " "
 
 "" Files
-map <leader>h :noh<CR>
 map <leader>ff :Files<CR>
+map <leader>h :noh<CR>
 
 "" Git
-map <leader>gg :GFiles<CR>
-map <leader>gs :GFiles?<CR>
 map <leader>gb :BCommits<CR>
 map <leader>gd :Git diff<CR>
+map <leader>gg :GFiles<CR>
 map <leader>gl :Git log<CR>
+map <leader>gs :GFiles?<CR>
 
 
 "" Buffers
@@ -68,13 +69,13 @@ map <leader>bd :bd<CR>
 map <leader>/ :Ag<CR>
 
 "" Windows
-map <leader>wl :Windows<CR>
-map <leader>wd :q<CR>
 map <leader>wc :cope<CR>
+map <leader>wd :q<CR>
+map <leader>wl :Windows<CR>
 
 "" Other
-map <leader>tt :Colors<CR>
 map <leader>c :Commentary<CR>
+map <leader>tt :Colors<CR>
 
 "" Help
 nmap <leader>d <plug>(YCMHover)
