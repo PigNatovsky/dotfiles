@@ -7,10 +7,11 @@ Plug 'preservim/tagbar'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'vimwiki/vimwiki'
 Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
-" Tabs settings
+" Tabulator settings
 set expandtab
 set shiftwidth=2
 set tabstop=2
@@ -22,7 +23,7 @@ filetype plugin on
 set backspace=indent,eol,start
 set clipboard=unnamed
 set hlsearch
-set ignorecase
+" set ignorecase
 set incsearch
 set laststatus=2
 set mouse=a
@@ -76,11 +77,17 @@ map <leader>wl :Windows<CR>
 
 "" Other
 map <leader>c :Commentary<CR>
-map <leader>t :TagbarToggle<CR>
-map <leader>tt :Colors<CR>
+map <leader>tt :TagbarToggle<CR>
+map <leader>pc :Colors<CR>
 
 "" Help
 nmap <leader>d <plug>(YCMHover)
+
+"" Tabs
+nmap <leader>tl :tabs<CR>
+nmap <leader>tn :tabNext<CR>
+nmap <leader>tp :tabprevious<CR>
+nmap <leader>tc :tabnew<CR>
 
 " Plugins settings
 let g:ycm_auto_hover = 0
