@@ -29,10 +29,9 @@ brew tap d12frosted/emacs-plus
 brew install emacs-plus@30
 
 # Doom Emacs
-
-if [[ ! -d ~/.config/emacs/ ]]
+if [[ ! -f ~/.config/emacs/bin/doom ]]
 then
   echo "Path does not exists, cloning doom repo" 
   git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+  ~/.config/emacs/bin/doom install
 fi
-~/.config/emacs/bin/doom install
