@@ -23,6 +23,8 @@ do
   fi
 done
 
+# Install Iosevka fornts
+for f in $(brew search iosevka | grep font) ; do brew install $f ; done
 
 # Emacs
 brew tap d12frosted/emacs-plus
