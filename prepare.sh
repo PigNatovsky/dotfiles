@@ -11,7 +11,7 @@ git submodule init
 git submodule update
 
 # BSD ctags will not work with tagbar plugin
-dependencies=(ctags fzf go python-setuptools stow)
+dependencies=(ctags fzf go python-setuptools sqlite stow)
 for bin in "${dependencies[@]}"
 do
   echo "Checking $bin..."
