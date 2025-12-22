@@ -24,7 +24,9 @@ do
 done
 
 # Install Iosevka fornts
-for f in $(brew search iosevka | grep font) ; do brew install $f ; done
+# for f in $(brew search iosevka | grep font) ; do brew install $f ; done
+
+brew install font-jetbrains-mono-nerd-font
 
 # Emacs
 brew tap d12frosted/emacs-plus
