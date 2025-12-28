@@ -133,7 +133,7 @@ require("lazy").setup({
     end
   },
 
-  -- SRE TOOLS (LSP, Treesitter, Mason)
+  -- TOOLS (LSP, Treesitter, Mason)
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   { 
     "williamboman/mason.nvim", 
