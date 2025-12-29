@@ -159,6 +159,32 @@ require("lazy").setup({
   { "numToStr/Comment.nvim", config = true },
   { "tpope/vim-surround" },
   { "preservim/tagbar" },
+
+  -- NOTES
+  { "renerocksai/telekasten.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    config = function()
+        require("telekasten").setup({
+            home = vim.fn.expand("~/notes"),
+            take_over_my_home = true,
+            
+            new_note_filename = "title",
+            uuid_type = "%Y%m%d%H%M",
+            uuid_sep = "-", 
+            auto_set_filetype = true,
+
+            -- Simple template
+            template_new_note = [[
+---
+title: {{title}}
+date: {{date}}
+---
+
+# {{title}}
+]],
+        })
+    end,
+}
 })
 
 -- ==========================================================================
@@ -166,6 +192,24 @@ require("lazy").setup({
 -- ==========================================================================
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
+
+-- Main Panel
+keymap("n", "<leader>zp", "<cmd>Telekasten panel<CR>", opts)
+
+-- Find / Search
+keymap("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>", opts)   -- Find by filename
+keymap("n", "<leader>zg", "<cmd>Telekasten search_notes<CR>", opts) -- Grep content (important for snippets)
+keymap("n", "<leader>zt", "<cmd>Telekasten show_tags<CR>", opts)
+keymap("n", "<leader>zd", "<cmd>Telekasten find_daily_notes<CR>", opts)
+
+-- Actions
+keymap("n", "<leader>zn", "<cmd>Telekasten new_note<CR>", opts)
+keymap("n", "<leader>zy", "<cmd>Telekasten goto_today<CR>", opts)   -- Daily note
+
+-- Linking
+keymap("n", "<leader>zi", "<cmd>Telekasten insert_link<CR>", opts)
+keymap("n", "<leader>zl", "<cmd>Telekasten follow_link<CR>", opts)  -- Go to definition
+keymap("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>", opts)
 
 -- Git (Neogit)
 keymap("n", "<leader>gg", ":Neogit<CR>", { desc = "Neogit (Magit style)" }) 
