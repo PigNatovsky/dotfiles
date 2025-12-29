@@ -193,20 +193,14 @@ date: {{date}}
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
--- Main Panel
+-- Telekasten
 keymap("n", "<leader>zp", "<cmd>Telekasten panel<CR>", opts)
-
--- Find / Search
 keymap("n", "<leader>zf", "<cmd>Telekasten find_notes<CR>", opts)   -- Find by filename
 keymap("n", "<leader>zg", "<cmd>Telekasten search_notes<CR>", opts) -- Grep content (important for snippets)
 keymap("n", "<leader>zt", "<cmd>Telekasten show_tags<CR>", opts)
 keymap("n", "<leader>zd", "<cmd>Telekasten find_daily_notes<CR>", opts)
-
--- Actions
 keymap("n", "<leader>zn", "<cmd>Telekasten new_note<CR>", opts)
 keymap("n", "<leader>zy", "<cmd>Telekasten goto_today<CR>", opts)   -- Daily note
-
--- Linking
 keymap("n", "<leader>zi", "<cmd>Telekasten insert_link<CR>", opts)
 keymap("n", "<leader>zl", "<cmd>Telekasten follow_link<CR>", opts)  -- Go to definition
 keymap("n", "<leader>zb", "<cmd>Telekasten show_backlinks<CR>", opts)
