@@ -1,3 +1,4 @@
+# This script should handle MacOS and Linux
 #!/bin/bash
 
 echo "Creating .config..."
