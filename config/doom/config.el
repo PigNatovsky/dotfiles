@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+;; (setq user-full-name "PigNatovsky"
+;;       user-mail-address "pignatovsky@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Iosevka Term SS11" :size 18))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 18))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -31,11 +31,11 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'acme-pignatovsky)
+(setq doom-theme 'modus-vivendi-deuteranopia)
 
 ;; This Determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type nil)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -73,18 +73,34 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(setq which-key-idle-delay 0.2)
+(setq which-key-idle-delay 0.1)
 
-
-;; Cape setup for buffer completion
 (use-package! cape
   :init
-  (add-hook 'prog-mode-hook
-            (lambda()
-              (add-to-list 'completion-at-point-functions #'cape-dabbrev t)))
-  (add-hook 'text-mode-hook
-            (lambda()
-              (add-to-list 'completion-at-point-functions #'cape-dabbrev t)))
-  )
-(setq dabbrev-check-other-buffers t
-      dabbrev-check-all-buffers t)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-elisp-block))
+
+(after! corfu
+  (setq corfu-auto t
+        corfu-auto-delay 0.0
+        corfu-auto-prefix 2
+        corfu-quit-no-match 'separator
+        corfu-preselect 'prompt))
+
+(after! lsp-mode
+  (setq lsp-completion-provider :none)
+
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(orderless))
+    (setq-local completion-at-point-functions
+                (list (cape-capf-super
+                       #'lsp-completion-at-point
+                       #'cape-dabbrev
+                       #'cape-file))))
+
+  (add-hook 'lsp-mode-hook #'my/lsp-mode-setup-completion))
+
+(after! lsp-mode
+  (setq lsp-elixir-server-command '("/home/pignatovsky/Pobrane/elixir-ls/language_server.sh")))
