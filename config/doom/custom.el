@@ -10,7 +10,8 @@
      "6dcf1ca4c7432773084b9d52649ee5eb2c663131c4c06859f648dea98d9acb3e"
      "835d934a930142d408a50b27ed371ba3a9c5a30286297743b0d488e94b225c5f"
      "b20f27c86b88514093ab1cd5e3ebc28bbc02a7730074b36a3aff3d4f1df7c0cd" default))
- '(ignored-local-variable-values '((lexicaBBDBl-binding . t))))
+ '(ignored-local-variable-values '((lexicaBBDBl-binding . t)))
+ '(package-selected-packages nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
