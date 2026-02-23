@@ -56,3 +56,4 @@
 (package! acme-theme)
 (package! base16-theme)
 (package! cape)
+(package! org-roam-ui)
