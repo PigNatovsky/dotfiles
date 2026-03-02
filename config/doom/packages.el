@@ -57,3 +57,6 @@
 (package! base16-theme)
 (package! cape)
 (package! org-roam-ui)
+(package! nov)
+(package! nov-xwidget
+  :recipe (:host github :repo "chenyanming/nov-xwidget"))
