@@ -104,3 +104,10 @@
 
 (after! lsp-mode
   (setq lsp-elixir-server-command '("/home/pignatovsky/Pobrane/elixir-ls/language_server.sh")))
+
+(use-package! nov
+  :mode ("\\.epub\\'" . nov-mode))
+
+(use-package! nov-xwidget
+  :after nov
+  :defer t)
