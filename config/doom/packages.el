@@ -60,3 +60,5 @@
 (package! nov)
 (package! nov-xwidget
   :recipe (:host github :repo "chenyanming/nov-xwidget"))
+(package! pgmacs
+  :recipe (:host github :repo "emarsden/pgmacs"))
