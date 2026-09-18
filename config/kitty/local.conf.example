@@ -1,0 +1,6 @@
+# Copy this file to ~/.config/kitty/local.conf (NOT into this repo) and
+# adjust values for this specific machine's display/DPI scaling.
+# local.conf is loaded last via `globinclude local.conf` in kitty.conf,
+# so anything set here overrides the shared defaults.
+
+# font_size 18.0
